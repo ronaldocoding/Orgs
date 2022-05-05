@@ -15,7 +15,7 @@ class FormularioProdutoActivity : AppCompatActivity(R.layout.activity_formulario
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val botaoSalvar = findViewById<Button>(R.id.salvar)
+        val botaoSalvar = findViewById<Button>(R.id.activity_formulario_produto_botao_salvar)
         configuraBotaoSalvar(botaoSalvar)
     }
 
@@ -28,11 +28,11 @@ class FormularioProdutoActivity : AppCompatActivity(R.layout.activity_formulario
     }
 
     private fun criaProduto(): Produto {
-        val campoNome = findViewById<EditText>(R.id.nome)
+        val campoNome = findViewById<EditText>(R.id.activity_formulario_produto_nome)
         val nome = campoNome.text.toString()
-        val campoDescricao = findViewById<EditText>(R.id.descricao)
+        val campoDescricao = findViewById<EditText>(R.id.activity_formulario_produto_descricao)
         val descricao = campoDescricao.text.toString()
-        val campoValor = findViewById<EditText>(R.id.valor)
+        val campoValor = findViewById<EditText>(R.id.activity_formulario_produto_valor)
         val valorEmTexto = campoValor.text.toString()
 
         val valor = if (valorEmTexto.isBlank()) {
