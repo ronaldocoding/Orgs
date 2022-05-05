@@ -6,11 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import br.com.orgs.R
 import br.com.orgs.dao.ProdutosDAO
-import br.com.orgs.model.Produto
 import br.com.orgs.ui.recyclerview.adapter.ListaProdutosAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
+class ListaProdutosActivity : AppCompatActivity(R.layout.activity_lista_produtos) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
