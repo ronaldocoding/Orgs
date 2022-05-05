@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import br.com.orgs.R
+import br.com.orgs.dao.ProdutosDAO
 import br.com.orgs.model.Produto
 import java.math.BigDecimal
 
@@ -13,9 +14,9 @@ class FormularioProdutoActivity : AppCompatActivity(R.layout.activity_formulario
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val botao_salvar = findViewById<Button>(R.id.salvar)
+        val botaoSalvar = findViewById<Button>(R.id.salvar)
 
-        botao_salvar.setOnClickListener {
+        botaoSalvar.setOnClickListener {
             val campoNome = findViewById<EditText>(R.id.nome)
             val nome = campoNome.text.toString()
             val campoDescricao = findViewById<EditText>(R.id.descricao)
@@ -36,6 +37,9 @@ class FormularioProdutoActivity : AppCompatActivity(R.layout.activity_formulario
             )
 
             Log.i("FormularioProduto", "onCreate: $novoProduto")
+            val dao = ProdutosDAO()
+            dao.adiciona(novoProduto)
+            Log.i("FormularioProduto", "onCreate: ${dao.buscaTodos()}")
         }
     }
 
