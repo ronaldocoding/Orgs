@@ -40,6 +40,7 @@ class FormularioProdutoActivity : AppCompatActivity(R.layout.activity_formulario
             val dao = ProdutosDAO()
             dao.adiciona(novoProduto)
             Log.i("FormularioProduto", "onCreate: ${dao.buscaTodos()}")
+            finish()
         }
     }
 
