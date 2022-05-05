@@ -11,22 +11,35 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ListaProdutosActivity : AppCompatActivity(R.layout.activity_lista_produtos) {
 
+    private val dao = ProdutosDAO()
+    private val adapter = ListaProdutosAdapter(context = this, produtos = dao.buscaTodos())
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
+        configuraRecyclerView()
+        configuraFab()
     }
 
     override fun onResume() {
         super.onResume()
+        adapter.atualiza(dao.buscaTodos())
+    }
+
+    private fun configuraRecyclerView() {
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-        val dao = ProdutosDAO()
-        recyclerView.adapter = ListaProdutosAdapter(context = this, produtos = dao.buscaTodos())
+        recyclerView.adapter = adapter
+    }
+
+    private fun configuraFab() {
         val fab = findViewById<FloatingActionButton>(R.id.floatingActionButton)
         fab.setOnClickListener {
-            val intent = Intent(this, FormularioProdutoActivity::class.java)
-            startActivity(intent)
+            vaiParaFormularioProduto()
         }
+    }
+
+    private fun vaiParaFormularioProduto() {
+        val intent = Intent(this, FormularioProdutoActivity::class.java)
+        startActivity(intent)
     }
 
 }
