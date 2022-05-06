@@ -3,19 +3,21 @@ package br.com.orgs.ui.activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
-import br.com.orgs.R
 import br.com.orgs.dao.ProdutosDAO
+import br.com.orgs.databinding.ActivityListaProdutosBinding
 import br.com.orgs.ui.recyclerview.adapter.ListaProdutosAdapter
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class ListaProdutosActivity : AppCompatActivity(R.layout.activity_lista_produtos) {
+class ListaProdutosActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityListaProdutosBinding
     private val dao = ProdutosDAO()
     private val adapter = ListaProdutosAdapter(context = this, produtos = dao.buscaTodos())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityListaProdutosBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
         configuraRecyclerView()
         configuraFab()
     }
@@ -26,12 +28,12 @@ class ListaProdutosActivity : AppCompatActivity(R.layout.activity_lista_produtos
     }
 
     private fun configuraRecyclerView() {
-        val recyclerView = findViewById<RecyclerView>(R.id.activity_lista_produtos_recyclerView)
+        val recyclerView = binding.activityListaProdutosRecyclerView
         recyclerView.adapter = adapter
     }
 
     private fun configuraFab() {
-        val fab = findViewById<FloatingActionButton>(R.id.activity_lista_produtos_fab)
+        val fab = binding.activityListaProdutosFab
         fab.setOnClickListener {
             vaiParaFormularioProduto()
         }
