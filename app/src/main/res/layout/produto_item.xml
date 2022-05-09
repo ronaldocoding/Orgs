@@ -33,6 +33,8 @@
         android:id="@+id/produto_item_descricao"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_alternates"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@id/produto_item_nome"
         app:layout_constraintStart_toStartOf="@id/produto_item_nome"
         app:layout_constraintTop_toBottomOf="@id/produto_item_nome"
