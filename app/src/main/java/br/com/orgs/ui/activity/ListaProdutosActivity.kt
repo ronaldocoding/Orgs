@@ -9,13 +9,14 @@ import br.com.orgs.ui.recyclerview.adapter.ListaProdutosAdapter
 
 class ListaProdutosActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityListaProdutosBinding
     private val dao = ProdutosDAO()
     private val adapter = ListaProdutosAdapter(context = this, produtos = dao.buscaTodos())
+    private val binding by lazy {
+        ActivityListaProdutosBinding.inflate(layoutInflater)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityListaProdutosBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
         configuraRecyclerView()

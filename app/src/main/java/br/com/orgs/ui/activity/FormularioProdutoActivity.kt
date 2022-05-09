@@ -10,12 +10,13 @@ import java.math.BigDecimal
 
 class FormularioProdutoActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityFormularioProdutoBinding
     private val dao = ProdutosDAO()
+    private val binding by lazy {
+        ActivityFormularioProdutoBinding.inflate(layoutInflater)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityFormularioProdutoBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
         val botaoSalvar = binding.activityFormularioProdutoBotaoSalvar
