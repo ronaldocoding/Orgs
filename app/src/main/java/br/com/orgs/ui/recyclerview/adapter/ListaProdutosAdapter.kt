@@ -14,14 +14,16 @@ class ListaProdutosAdapter(
 
     private val produtos = produtos.toMutableList()
 
-    class ViewHolder(private var binding: ProdutoItemBinding) :
+    class ViewHolder(binding: ProdutoItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
+        private val nome = binding.produtoItemNome
+        private val descricao = binding.produtoItemDescricao
+        private val valor = binding.produtoItemValor
+
         fun vincula(produto: Produto) {
-            val nome = binding.produtoItemNome
             nome.text = produto.nome
-            val descricao = binding.produtoItemDescricao
             descricao.text = produto.descricao
-            val valor = binding.produtoItemValor
             valor.text = produto.valor.toPlainString()
         }
     }
