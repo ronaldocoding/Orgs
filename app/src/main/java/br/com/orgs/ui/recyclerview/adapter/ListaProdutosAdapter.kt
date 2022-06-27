@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.com.orgs.databinding.ProdutoItemBinding
 import br.com.orgs.model.Produto
+import coil.load
 import java.math.BigDecimal
 import java.text.NumberFormat
 import java.util.*
@@ -23,12 +24,14 @@ class ListaProdutosAdapter(
         private val nome = binding.produtoItemNome
         private val descricao = binding.produtoItemDescricao
         private val valor = binding.produtoItemValor
+        private val imageView = binding.imageView
 
         fun vincula(produto: Produto) {
             nome.text = produto.nome
             descricao.text = produto.descricao
             val valorEmMoeda = formataParaMoedaBrasileira(produto.valor)
             valor.text = valorEmMoeda
+            imageView.load(produto.imagem)
         }
 
         private fun formataParaMoedaBrasileira(valor: BigDecimal): String {
