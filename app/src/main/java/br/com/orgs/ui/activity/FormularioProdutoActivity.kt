@@ -3,6 +3,8 @@ package br.com.orgs.ui.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.appcompat.app.AlertDialog
+import br.com.orgs.R
 import br.com.orgs.dao.ProdutosDAO
 import br.com.orgs.databinding.ActivityFormularioProdutoBinding
 import br.com.orgs.model.Produto
@@ -21,6 +23,17 @@ class FormularioProdutoActivity : AppCompatActivity() {
         setContentView(view)
         val botaoSalvar = binding.activityFormularioProdutoBotaoSalvar
         configuraBotaoSalvar(botaoSalvar)
+        binding.activityFormularioProdutoImagem.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setView(R.layout.formulario_imagem)
+                .setPositiveButton("Confirmar") { _, _ ->
+
+                }
+                .setNegativeButton("Cancelar") { _, _ ->
+
+                }
+                .show()
+        }
     }
 
     private fun configuraBotaoSalvar(botaoSalvar: Button) {
