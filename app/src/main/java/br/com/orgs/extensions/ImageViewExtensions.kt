@@ -1,7 +1,6 @@
 package br.com.orgs.extensions
 
 import android.widget.ImageView
-import br.com.orgs.R
 import coil.load
 
 fun ImageView.tentaCarregarImagem(url: String? = null) {
