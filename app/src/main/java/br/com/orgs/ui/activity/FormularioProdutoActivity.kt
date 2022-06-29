@@ -27,6 +27,7 @@ class FormularioProdutoActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         val botaoSalvar = binding.activityFormularioProdutoBotaoSalvar
+        title = "Cadastrar produto"
         configuraBotaoSalvar(botaoSalvar)
         binding.activityFormularioProdutoImagem.setOnClickListener {
             FormularioImagemDialog(this)
